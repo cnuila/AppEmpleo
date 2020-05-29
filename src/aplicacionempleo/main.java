@@ -7,6 +7,7 @@ package aplicacionempleo;
 
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
+import com.mongodb.client.FindIterable;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.bson.Document;
@@ -116,9 +117,19 @@ public class main extends javax.swing.JFrame {
         jPanel_personas.add(jb_crearTpersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 75, -1));
 
         jb_modTpersona.setText("Modificar");
+        jb_modTpersona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_modTpersonaMouseClicked(evt);
+            }
+        });
         jPanel_personas.add(jb_modTpersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(467, 11, -1, -1));
 
         jb_deleteTpersona.setText("Eliminar");
+        jb_deleteTpersona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_deleteTpersonaMouseClicked(evt);
+            }
+        });
         jPanel_personas.add(jb_deleteTpersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 11, 75, -1));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -369,6 +380,11 @@ public class main extends javax.swing.JFrame {
         jPanel_personas.add(jtBuscarPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 12, 191, -1));
 
         jb_buscarPersona.setText("Buscar");
+        jb_buscarPersona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_buscarPersonaMouseClicked(evt);
+            }
+        });
         jPanel_personas.add(jb_buscarPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(374, 11, 75, -1));
 
         jTabbedPane1.addTab("Personas", jPanel_personas);
@@ -480,6 +496,26 @@ public class main extends javax.swing.JFrame {
             reestablecerCampos(false);
         }
     }//GEN-LAST:event_jb_guardarMouseClicked
+
+    private void jb_modTpersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modTpersonaMouseClicked
+        // TODO add your handling code here:
+        if (!jtBuscarPersona.getText().equals("")) {
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe encontrar a una persona primero", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_jb_modTpersonaMouseClicked
+
+    private void jb_deleteTpersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_deleteTpersonaMouseClicked
+        // TODO add your handling code here:
+        if (!jtBuscarPersona.getText().equals("")) {
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe encontrar a una persona primero", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_jb_deleteTpersonaMouseClicked
+
+    private void jb_buscarPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_buscarPersonaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_buscarPersonaMouseClicked
 
     /**
      * @param args the command line arguments

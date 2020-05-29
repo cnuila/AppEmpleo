@@ -37,6 +37,10 @@ public class Conexion {
         this.collection = database.getCollection("personas");
     }
 
+    public MongoCollection<Document> getCollection() {
+        return collection;
+    }
+
     public void insertar(Document doc) {
         this.collection.insertOne(doc);
     }
