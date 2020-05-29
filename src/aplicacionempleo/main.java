@@ -27,13 +27,11 @@ public class main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel4 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         buttonGroupSexo = new javax.swing.ButtonGroup();
+        buttonGroupContrato = new javax.swing.ButtonGroup();
         jPanel2 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
         jPanel_personas = new javax.swing.JPanel();
         jb_crearTpersona = new javax.swing.JButton();
         jb_modTpersona = new javax.swing.JButton();
@@ -52,31 +50,37 @@ public class main extends javax.swing.JFrame {
         jrb_femenino = new javax.swing.JRadioButton();
         jrb_noDecirlo = new javax.swing.JRadioButton();
         jt_numeroIdentidad = new javax.swing.JTextField();
-        jSpinner1 = new javax.swing.JSpinner();
+        jSpinEdad = new javax.swing.JSpinner();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jcheck_familia = new javax.swing.JCheckBox();
+        jcheckEnfermedad = new javax.swing.JCheckBox();
+        jt_enfermedad = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jcheckCarcel = new javax.swing.JCheckBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableAcademicos = new javax.swing.JTable();
+        jLabel12 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableEmpleos = new javax.swing.JTable();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTablePuestos = new javax.swing.JTable();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jLabel17 = new javax.swing.JLabel();
+        jSpinSalario = new javax.swing.JSpinner();
+        jb_guardar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jtBuscarPersona = new javax.swing.JTextField();
         jb_buscarPersona = new javax.swing.JButton();
-
-        jPanel4.setBackground(new java.awt.Color(0, 204, 0));
-
-        jLabel1.setText("bkbkj");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addComponent(jLabel1)
-                .addContainerGap(369, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(203, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(146, 146, 146))
-        );
+        jPanel5 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,23 +94,12 @@ public class main extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
+            .addGap(0, 452, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Inicio", jPanel3);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 715, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Empresas", jPanel5);
+        jPanel_personas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jb_crearTpersona.setText("Crear");
         jb_crearTpersona.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -114,26 +107,29 @@ public class main extends javax.swing.JFrame {
                 jb_crearTpersonaMouseClicked(evt);
             }
         });
+        jPanel_personas.add(jb_crearTpersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 75, -1));
 
         jb_modTpersona.setText("Modificar");
+        jPanel_personas.add(jb_modTpersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(467, 11, -1, -1));
 
         jb_deleteTpersona.setText("Eliminar");
+        jPanel_personas.add(jb_deleteTpersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 11, 75, -1));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Nombre:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 32, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
         jt_nombre.setEditable(false);
-        jPanel1.add(jt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 30, 140, -1));
+        jPanel1.add(jt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 140, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Apellido:");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
         jt_apellido.setEditable(false);
-        jPanel1.add(jt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 68, 152, -1));
+        jPanel1.add(jt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 140, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Sexo:");
@@ -144,8 +140,8 @@ public class main extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel7.setText("Apellido:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
+        jLabel7.setText("Especifique:");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setText("Numero Identidad:");
@@ -170,58 +166,212 @@ public class main extends javax.swing.JFrame {
         jt_numeroIdentidad.setEnabled(false);
         jPanel1.add(jt_numeroIdentidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 143, -1));
 
-        jSpinner1.setEnabled(false);
-        jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 54, -1));
+        jSpinEdad.setEnabled(false);
+        jPanel1.add(jSpinEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 54, -1));
 
-        jTabbedPane2.addTab("Personales", jPanel1);
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel9.setText("Personales:");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel10.setText("Académicos:");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel13.setText("Familiares:");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+
+        jcheck_familia.setText("Vive con familia");
+        jcheck_familia.setEnabled(false);
+        jPanel1.add(jcheck_familia, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+
+        jcheckEnfermedad.setText("Padece Enfermedad");
+        jcheckEnfermedad.setEnabled(false);
+        jPanel1.add(jcheckEnfermedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+
+        jt_enfermedad.setEditable(false);
+        jPanel1.add(jt_enfermedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 140, -1));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel11.setText("Sanitarios:");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
+
+        jcheckCarcel.setText("¿Ha estado en la arrestado?");
+        jcheckCarcel.setEnabled(false);
+        jPanel1.add(jcheckCarcel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
+
+        jTableAcademicos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Nivel de Estudios", "Lugar", "Promedio"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTableAcademicos.setColumnSelectionAllowed(true);
+        jTableAcademicos.setEnabled(false);
+        jTableAcademicos.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jTableAcademicos);
+        jTableAcademicos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 420, 120));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel12.setText("Legales:");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, -1, -1));
+
+        jTabbedPane2.addTab("Datos", jPanel1);
+
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTableEmpleos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Empresa", "Años", "Puesto"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTableEmpleos.setEnabled(false);
+        jTableEmpleos.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(jTableEmpleos);
+        if (jTableEmpleos.getColumnModel().getColumnCount() > 0) {
+            jTableEmpleos.getColumnModel().getColumn(1).setPreferredWidth(20);
+        }
+
+        jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 630, 120));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel14.setText("Laborales:");
+        jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setText("Salario:");
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
+
+        jTablePuestos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Puesto"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTablePuestos.setEnabled(false);
+        jScrollPane3.setViewportView(jTablePuestos);
+
+        jPanel4.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 210, 120));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel15.setText("Preferencias:");
+        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel16.setText("Puestos que puede realizar:");
+        jPanel4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+
+        buttonGroupContrato.add(jRadioButton1);
+        jRadioButton1.setSelected(true);
+        jRadioButton1.setText("Permanente");
+        jRadioButton1.setEnabled(false);
+        jPanel4.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
+
+        buttonGroupContrato.add(jRadioButton2);
+        jRadioButton2.setText("Temporal");
+        jRadioButton2.setEnabled(false);
+        jPanel4.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, -1, -1));
+
+        buttonGroupContrato.add(jRadioButton3);
+        jRadioButton3.setText("Por Proyecto");
+        jRadioButton3.setEnabled(false);
+        jPanel4.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, -1, -1));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel17.setText("Tipo de Contrato:");
+        jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, -1, -1));
+
+        jSpinSalario.setModel(new javax.swing.SpinnerNumberModel(1000.0d, 1000.0d, null, 1.0d));
+        jSpinSalario.setEnabled(false);
+        jPanel4.add(jSpinSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 140, -1));
+
+        jb_guardar.setText("Guardar");
+        jb_guardar.setEnabled(false);
+        jPanel4.add(jb_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 120, -1));
+
+        jTabbedPane2.addTab("Datos Laborales", jPanel4);
+
+        jPanel_personas.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 52, 690, 400));
 
         jLabel2.setText("Buscar:");
+        jPanel_personas.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 15, -1, -1));
+        jPanel_personas.add(jtBuscarPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 12, 191, -1));
 
         jb_buscarPersona.setText("Buscar");
-
-        javax.swing.GroupLayout jPanel_personasLayout = new javax.swing.GroupLayout(jPanel_personas);
-        jPanel_personas.setLayout(jPanel_personasLayout);
-        jPanel_personasLayout.setHorizontalGroup(
-            jPanel_personasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_personasLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanel_personasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel_personasLayout.createSequentialGroup()
-                        .addComponent(jb_crearTpersona, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jtBuscarPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jb_buscarPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jb_modTpersona)
-                        .addGap(18, 18, 18)
-                        .addComponent(jb_deleteTpersona, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-        jPanel_personasLayout.setVerticalGroup(
-            jPanel_personasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_personasLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addGroup(jPanel_personasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jb_crearTpersona)
-                    .addGroup(jPanel_personasLayout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel_personasLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jtBuscarPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jb_buscarPersona)
-                    .addComponent(jb_modTpersona)
-                    .addComponent(jb_deleteTpersona))
-                .addGap(18, 18, 18)
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel_personas.add(jb_buscarPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(374, 11, 75, -1));
 
         jTabbedPane1.addTab("Personas", jPanel_personas);
 
-        jPanel2.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 470));
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 715, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 452, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Empresas", jPanel5);
+
+        jPanel2.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -231,7 +381,7 @@ public class main extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
         );
 
         pack();
@@ -252,7 +402,7 @@ public class main extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -277,8 +427,17 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroupContrato;
     private javax.swing.ButtonGroup buttonGroupSexo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -286,24 +445,40 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel_personas;
-    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSpinner jSpinEdad;
+    private javax.swing.JSpinner jSpinSalario;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JTable jTableAcademicos;
+    private javax.swing.JTable jTableEmpleos;
+    private javax.swing.JTable jTablePuestos;
     private javax.swing.JButton jb_buscarPersona;
     private javax.swing.JButton jb_crearTpersona;
     private javax.swing.JButton jb_deleteTpersona;
+    private javax.swing.JButton jb_guardar;
     private javax.swing.JButton jb_modTpersona;
+    private javax.swing.JCheckBox jcheckCarcel;
+    private javax.swing.JCheckBox jcheckEnfermedad;
+    private javax.swing.JCheckBox jcheck_familia;
     private javax.swing.JRadioButton jrb_femenino;
     private javax.swing.JRadioButton jrb_masculino;
     private javax.swing.JRadioButton jrb_noDecirlo;
     private javax.swing.JTextField jtBuscarPersona;
     private javax.swing.JTextField jt_apellido;
+    private javax.swing.JTextField jt_enfermedad;
     private javax.swing.JTextField jt_nombre;
     private javax.swing.JTextField jt_numeroIdentidad;
     // End of variables declaration//GEN-END:variables
