@@ -517,13 +517,8 @@ public class main extends javax.swing.JFrame {
             }
         }
 
-        MongoClient mongoClient = new MongoClient(
-                new MongoClientURI(
-                        "mongodb+srv://eagle:aldisparo@cluster0-g2ngr.mongodb.net/test?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=true"
-                )
-        );
-        MongoDatabase database = mongoClient.getDatabase("proyecto");
-        MongoCollection<Document> collection = database.getCollection("personas");
+        connect.conectar();
+        connect.setColeccion("personas");
 
         if (seleccionPer.equals("Crear")) {
             Document persona = new Document("identidad", jt_numeroIdentidad.getText())
@@ -539,8 +534,9 @@ public class main extends javax.swing.JFrame {
                     .append("puestoCapaz", ingresarTabla((DefaultTableModel) jTablePuestos.getModel(), campoPuestos))
                     .append("tipoContrato", tipoContract)
                     .append("salarioDeseado", jSpinSalario.getValue());
-            collection.insertOne(persona);
+            connect.insertar(persona);
             JOptionPane.showMessageDialog(this, "Creó una persona exitosamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+            connect.cerrarConexion();
         }
     }//GEN-LAST:event_jb_guardarMouseClicked
 
@@ -672,15 +668,19 @@ public class main extends javax.swing.JFrame {
         }
     }
 
+    public void reestablecerCampos() {
+
+    }
+
     public BasicDBList ingresarTabla(DefaultTableModel modeloTabla, String[] campos) {
         int columnas = modeloTabla.getColumnCount();
         int filas = modeloTabla.getRowCount();
         BasicDBList lista = new BasicDBList();
-        BasicDBObject obj = new BasicDBObject();
         for (int i = 0; i < filas; i++) {
             if (modeloTabla.getValueAt(i, 0) != null) {
+                BasicDBObject obj = new BasicDBObject();
                 for (int j = 0; j < columnas; j++) {
-                    obj.append(campos[j], modeloTabla.getValueAt(i, j));
+                    obj.put(campos[j], modeloTabla.getValueAt(i, j));
                 }
                 lista.add(obj);
             } else {
@@ -691,6 +691,7 @@ public class main extends javax.swing.JFrame {
     }
 
     String seleccionPer = "";
+    Conexion connect = new Conexion();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupContrato;
     private javax.swing.ButtonGroup buttonGroupSexo;
