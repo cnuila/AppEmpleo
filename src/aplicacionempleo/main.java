@@ -71,9 +71,9 @@ public class main extends javax.swing.JFrame {
         jTablePuestos = new javax.swing.JTable();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        jrb_permanente = new javax.swing.JRadioButton();
+        jrb_temporal = new javax.swing.JRadioButton();
+        jrb_porProyecto = new javax.swing.JRadioButton();
         jLabel17 = new javax.swing.JLabel();
         jSpinSalario = new javax.swing.JSpinner();
         jb_guardar = new javax.swing.JButton();
@@ -163,7 +163,7 @@ public class main extends javax.swing.JFrame {
         jrb_noDecirlo.setEnabled(false);
         jPanel1.add(jrb_noDecirlo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, -1));
 
-        jt_numeroIdentidad.setEnabled(false);
+        jt_numeroIdentidad.setEditable(false);
         jPanel1.add(jt_numeroIdentidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 143, -1));
 
         jSpinEdad.setEnabled(false);
@@ -187,7 +187,12 @@ public class main extends javax.swing.JFrame {
 
         jcheckEnfermedad.setText("Padece Enfermedad");
         jcheckEnfermedad.setEnabled(false);
-        jPanel1.add(jcheckEnfermedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+        jcheckEnfermedad.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcheckEnfermedadItemStateChanged(evt);
+            }
+        });
+        jPanel1.add(jcheckEnfermedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
         jt_enfermedad.setEditable(false);
         jPanel1.add(jt_enfermedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 140, -1));
@@ -317,21 +322,21 @@ public class main extends javax.swing.JFrame {
         jLabel16.setText("Puestos que puede realizar:");
         jPanel4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
-        buttonGroupContrato.add(jRadioButton1);
-        jRadioButton1.setSelected(true);
-        jRadioButton1.setText("Permanente");
-        jRadioButton1.setEnabled(false);
-        jPanel4.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
+        buttonGroupContrato.add(jrb_permanente);
+        jrb_permanente.setSelected(true);
+        jrb_permanente.setText("Permanente");
+        jrb_permanente.setEnabled(false);
+        jPanel4.add(jrb_permanente, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
 
-        buttonGroupContrato.add(jRadioButton2);
-        jRadioButton2.setText("Temporal");
-        jRadioButton2.setEnabled(false);
-        jPanel4.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, -1, -1));
+        buttonGroupContrato.add(jrb_temporal);
+        jrb_temporal.setText("Temporal");
+        jrb_temporal.setEnabled(false);
+        jPanel4.add(jrb_temporal, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 250, -1, -1));
 
-        buttonGroupContrato.add(jRadioButton3);
-        jRadioButton3.setText("Por Proyecto");
-        jRadioButton3.setEnabled(false);
-        jPanel4.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, -1, -1));
+        buttonGroupContrato.add(jrb_porProyecto);
+        jrb_porProyecto.setText("Por Proyecto");
+        jrb_porProyecto.setEnabled(false);
+        jPanel4.add(jrb_porProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel17.setText("Tipo de Contrato:");
@@ -389,7 +394,68 @@ public class main extends javax.swing.JFrame {
 
     private void jb_crearTpersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearTpersonaMouseClicked
         // TODO add your handling code here:
+        rehacerTablaAcademico();
+        jTableAcademicos.setEnabled(true);
+        rehacerTablaLaborales();
+        jTableEmpleos.setEnabled(true);
+        rehacerTablaPuestos();
+        jTablePuestos.setEnabled(true);
+
+        jt_nombre.setEditable(true);
+        jt_nombre.setText("");
+
+        jt_apellido.setEditable(true);
+        jt_apellido.setText("");
+
+        jrb_femenino.setEnabled(true);
+        jrb_femenino.setSelected(true);
+
+        jrb_masculino.setEnabled(true);
+        jrb_masculino.setSelected(false);
+
+        jrb_noDecirlo.setEnabled(true);
+        jrb_noDecirlo.setSelected(false);
+
+        jt_numeroIdentidad.setEditable(true);
+        jt_numeroIdentidad.setText("");
+
+        jSpinEdad.setValue(15);
+        jSpinEdad.setEnabled(true);
+
+        jcheck_familia.setEnabled(true);
+        jcheck_familia.setSelected(false);
+
+        jcheckEnfermedad.setEnabled(true);
+        jcheckEnfermedad.setSelected(false);
+        jt_enfermedad.setText("");
+        jt_enfermedad.setEditable(false);
+
+        jcheckCarcel.setEnabled(true);
+        jcheckCarcel.setSelected(false);
+
+        jrb_permanente.setSelected(true);
+        jrb_permanente.setEnabled(true);
+
+        jrb_temporal.setSelected(false);
+        jrb_temporal.setEnabled(true);
+
+        jrb_porProyecto.setSelected(false);
+        jrb_porProyecto.setEnabled(true);
+
+        jSpinSalario.setValue(1000);
+        jSpinSalario.setEnabled(true);
+
+        jb_guardar.setEnabled(true);
     }//GEN-LAST:event_jb_crearTpersonaMouseClicked
+
+    private void jcheckEnfermedadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcheckEnfermedadItemStateChanged
+        if (jcheckEnfermedad.isSelected()) {
+            jt_enfermedad.setEditable(true);
+        } else {
+            jt_enfermedad.setText("");
+            jt_enfermedad.setEditable(false);
+        }    
+    }//GEN-LAST:event_jcheckEnfermedadItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -426,6 +492,99 @@ public class main extends javax.swing.JFrame {
         });
     }
 
+    public void rehacerTablaAcademico() {
+        jTableAcademicos.setModel(new javax.swing.table.DefaultTableModel(
+                new Object[][]{
+                    {null, null, null},
+                    {null, null, null},
+                    {null, null, null},
+                    {null, null, null},
+                    {null, null, null},
+                    {null, null, null},
+                    {null, null, null},
+                    {null, null, null},
+                    {null, null, null},
+                    {null, null, null}
+                },
+                new String[]{
+                    "Nivel de Estudios", "Lugar", "Promedio"
+                }
+        ) {
+            Class[] types = new Class[]{
+                java.lang.String.class, java.lang.String.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types[columnIndex];
+            }
+        });
+        jTableAcademicos.setColumnSelectionAllowed(true);
+        jTableAcademicos.setEnabled(false);
+        jTableAcademicos.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jTableAcademicos);
+        jTableAcademicos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+    }
+
+    public void rehacerTablaPuestos() {
+        jTablePuestos.setModel(new javax.swing.table.DefaultTableModel(
+                new Object[][]{
+                    {null},
+                    {null},
+                    {null},
+                    {null},
+                    {null},
+                    {null}
+                },
+                new String[]{
+                    "Puesto"
+                }
+        ) {
+            Class[] types = new Class[]{
+                java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types[columnIndex];
+            }
+        });
+        jTablePuestos.setEnabled(false);
+        jScrollPane3.setViewportView(jTablePuestos);
+    }
+
+    public void rehacerTablaLaborales() {
+        jTableEmpleos.setModel(new javax.swing.table.DefaultTableModel(
+                new Object[][]{
+                    {null, null, null},
+                    {null, null, null},
+                    {null, null, null},
+                    {null, null, null},
+                    {null, null, null},
+                    {null, null, null},
+                    {null, null, null},
+                    {null, null, null},
+                    {null, null, null},
+                    {null, null, null}
+                },
+                new String[]{
+                    "Empresa", "Años", "Puesto"
+                }
+        ) {
+            Class[] types = new Class[]{
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types[columnIndex];
+            }
+        });
+        jTableEmpleos.setEnabled(false);
+        jTableEmpleos.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(jTableEmpleos);
+        if (jTableEmpleos.getColumnModel().getColumnCount() > 0) {
+            jTableEmpleos.getColumnModel().getColumn(1).setPreferredWidth(20);
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupContrato;
     private javax.swing.ButtonGroup buttonGroupSexo;
@@ -452,9 +611,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel_personas;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -476,6 +632,9 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrb_femenino;
     private javax.swing.JRadioButton jrb_masculino;
     private javax.swing.JRadioButton jrb_noDecirlo;
+    private javax.swing.JRadioButton jrb_permanente;
+    private javax.swing.JRadioButton jrb_porProyecto;
+    private javax.swing.JRadioButton jrb_temporal;
     private javax.swing.JTextField jtBuscarPersona;
     private javax.swing.JTextField jt_apellido;
     private javax.swing.JTextField jt_enfermedad;
