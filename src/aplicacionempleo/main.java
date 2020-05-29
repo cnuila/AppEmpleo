@@ -7,13 +7,6 @@ package aplicacionempleo;
 
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.bson.Document;
@@ -244,11 +237,9 @@ public class main extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jTableAcademicos.setColumnSelectionAllowed(true);
         jTableAcademicos.setEnabled(false);
         jTableAcademicos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableAcademicos);
-        jTableAcademicos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 420, 120));
 
@@ -414,58 +405,7 @@ public class main extends javax.swing.JFrame {
     private void jb_crearTpersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearTpersonaMouseClicked
         // TODO add your handling code here:
         seleccionPer = "Crear";
-        rehacerTablaAcademico();
-        jTableAcademicos.setEnabled(true);
-        rehacerTablaLaborales();
-        jTableEmpleos.setEnabled(true);
-        rehacerTablaPuestos();
-        jTablePuestos.setEnabled(true);
-
-        jt_nombre.setEditable(true);
-        jt_nombre.setText("");
-
-        jt_apellido.setEditable(true);
-        jt_apellido.setText("");
-
-        jrb_femenino.setEnabled(true);
-        jrb_femenino.setSelected(true);
-
-        jrb_masculino.setEnabled(true);
-        jrb_masculino.setSelected(false);
-
-        jrb_noDecirlo.setEnabled(true);
-        jrb_noDecirlo.setSelected(false);
-
-        jt_numeroIdentidad.setEditable(true);
-        jt_numeroIdentidad.setText("");
-
-        jSpinEdad.setValue(15);
-        jSpinEdad.setEnabled(true);
-
-        jcheck_familia.setEnabled(true);
-        jcheck_familia.setSelected(false);
-
-        jcheckEnfermedad.setEnabled(true);
-        jcheckEnfermedad.setSelected(false);
-        jt_enfermedad.setText("");
-        jt_enfermedad.setEditable(false);
-
-        jcheckCarcel.setEnabled(true);
-        jcheckCarcel.setSelected(false);
-
-        jrb_permanente.setSelected(true);
-        jrb_permanente.setEnabled(true);
-
-        jrb_temporal.setSelected(false);
-        jrb_temporal.setEnabled(true);
-
-        jrb_porProyecto.setSelected(false);
-        jrb_porProyecto.setEnabled(true);
-
-        jSpinSalario.setValue(1000);
-        jSpinSalario.setEnabled(true);
-
-        jb_guardar.setEnabled(true);
+        reestablecerCampos(true);
     }//GEN-LAST:event_jb_crearTpersonaMouseClicked
 
     private void jcheckEnfermedadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcheckEnfermedadItemStateChanged
@@ -537,6 +477,7 @@ public class main extends javax.swing.JFrame {
             connect.insertar(persona);
             JOptionPane.showMessageDialog(this, "Creó una persona exitosamente", "Información", JOptionPane.INFORMATION_MESSAGE);
             connect.cerrarConexion();
+            reestablecerCampos(false);
         }
     }//GEN-LAST:event_jb_guardarMouseClicked
 
@@ -605,7 +546,6 @@ public class main extends javax.swing.JFrame {
         jTableAcademicos.setEnabled(false);
         jTableAcademicos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableAcademicos);
-        jTableAcademicos.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
     }
 
     public void rehacerTablaPuestos() {
@@ -668,8 +608,59 @@ public class main extends javax.swing.JFrame {
         }
     }
 
-    public void reestablecerCampos() {
+    public void reestablecerCampos(boolean habilitar) {
+        rehacerTablaAcademico();
+        jTableAcademicos.setEnabled(habilitar);
+        rehacerTablaLaborales();
+        jTableEmpleos.setEnabled(habilitar);
+        rehacerTablaPuestos();
+        jTablePuestos.setEnabled(habilitar);
 
+        jt_nombre.setEditable(habilitar);
+        jt_nombre.setText("");
+
+        jt_apellido.setEditable(habilitar);
+        jt_apellido.setText("");
+
+        jrb_femenino.setEnabled(habilitar);
+        jrb_femenino.setSelected(true);
+
+        jrb_masculino.setEnabled(habilitar);
+        jrb_masculino.setSelected(false);
+
+        jrb_noDecirlo.setEnabled(habilitar);
+        jrb_noDecirlo.setSelected(false);
+
+        jt_numeroIdentidad.setEditable(habilitar);
+        jt_numeroIdentidad.setText("");
+
+        jSpinEdad.setValue(15);
+        jSpinEdad.setEnabled(habilitar);
+
+        jcheck_familia.setEnabled(habilitar);
+        jcheck_familia.setSelected(false);
+
+        jcheckEnfermedad.setEnabled(habilitar);
+        jcheckEnfermedad.setSelected(false);
+        jt_enfermedad.setText("");
+        jt_enfermedad.setEditable(false);
+
+        jcheckCarcel.setEnabled(habilitar);
+        jcheckCarcel.setSelected(false);
+
+        jrb_permanente.setSelected(true);
+        jrb_permanente.setEnabled(habilitar);
+
+        jrb_temporal.setSelected(false);
+        jrb_temporal.setEnabled(habilitar);
+
+        jrb_porProyecto.setSelected(false);
+        jrb_porProyecto.setEnabled(habilitar);
+
+        jSpinSalario.setValue(1000);
+        jSpinSalario.setEnabled(habilitar);
+
+        jb_guardar.setEnabled(habilitar);
     }
 
     public BasicDBList ingresarTabla(DefaultTableModel modeloTabla, String[] campos) {
