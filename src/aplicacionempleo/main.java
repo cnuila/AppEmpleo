@@ -27,38 +27,219 @@ public class main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel4 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        buttonGroupSexo = new javax.swing.ButtonGroup();
+        jPanel2 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel_personas = new javax.swing.JPanel();
+        jb_crearTpersona = new javax.swing.JButton();
+        jb_modTpersona = new javax.swing.JButton();
+        jb_deleteTpersona = new javax.swing.JButton();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jt_nombre = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jt_apellido = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jrb_masculino = new javax.swing.JRadioButton();
+        jrb_femenino = new javax.swing.JRadioButton();
+        jrb_noDecirlo = new javax.swing.JRadioButton();
+        jt_numeroIdentidad = new javax.swing.JTextField();
+        jSpinner1 = new javax.swing.JSpinner();
+        jLabel2 = new javax.swing.JLabel();
+        jtBuscarPersona = new javax.swing.JTextField();
+        jb_buscarPersona = new javax.swing.JButton();
+
+        jPanel4.setBackground(new java.awt.Color(0, 204, 0));
+
+        jLabel1.setText("bkbkj");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addComponent(jLabel1)
+                .addContainerGap(369, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(203, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(146, 146, 146))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 715, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 442, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Inicio", jPanel3);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 715, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 442, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Empresas", jPanel5);
+
+        jb_crearTpersona.setText("Crear");
+        jb_crearTpersona.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crearTpersonaMouseClicked(evt);
+            }
+        });
+
+        jb_modTpersona.setText("Modificar");
+
+        jb_deleteTpersona.setText("Eliminar");
+
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("jButton1");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel3.setText("Nombre:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 32, -1, -1));
+
+        jt_nombre.setEditable(false);
+        jPanel1.add(jt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 30, 140, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setText("Apellido:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+
+        jt_apellido.setEditable(false);
+        jPanel1.add(jt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 68, 152, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel5.setText("Sexo:");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel6.setText("Edad:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 70, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel7.setText("Apellido:");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel8.setText("Numero Identidad:");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
+
+        buttonGroupSexo.add(jrb_masculino);
+        jrb_masculino.setText("Masculino");
+        jrb_masculino.setEnabled(false);
+        jPanel1.add(jrb_masculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, -1));
+
+        buttonGroupSexo.add(jrb_femenino);
+        jrb_femenino.setSelected(true);
+        jrb_femenino.setText("Femenino");
+        jrb_femenino.setEnabled(false);
+        jPanel1.add(jrb_femenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
+
+        buttonGroupSexo.add(jrb_noDecirlo);
+        jrb_noDecirlo.setText("Prefiero no decirlo");
+        jrb_noDecirlo.setEnabled(false);
+        jPanel1.add(jrb_noDecirlo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, -1));
+
+        jt_numeroIdentidad.setEnabled(false);
+        jPanel1.add(jt_numeroIdentidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 143, -1));
+
+        jSpinner1.setEnabled(false);
+        jPanel1.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 54, -1));
+
+        jTabbedPane2.addTab("Personales", jPanel1);
+
+        jLabel2.setText("Buscar:");
+
+        jb_buscarPersona.setText("Buscar");
+
+        javax.swing.GroupLayout jPanel_personasLayout = new javax.swing.GroupLayout(jPanel_personas);
+        jPanel_personas.setLayout(jPanel_personasLayout);
+        jPanel_personasLayout.setHorizontalGroup(
+            jPanel_personasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_personasLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel_personasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel_personasLayout.createSequentialGroup()
+                        .addComponent(jb_crearTpersona, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jtBuscarPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jb_buscarPersona, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jb_modTpersona)
+                        .addGap(18, 18, 18)
+                        .addComponent(jb_deleteTpersona, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 672, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        jPanel_personasLayout.setVerticalGroup(
+            jPanel_personasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_personasLayout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addGroup(jPanel_personasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jb_crearTpersona)
+                    .addGroup(jPanel_personasLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel_personasLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jtBuscarPersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jb_buscarPersona)
+                    .addComponent(jb_modTpersona)
+                    .addComponent(jb_deleteTpersona))
+                .addGap(18, 18, 18)
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jTabbedPane1.addTab("Personas", jPanel_personas);
+
+        jPanel2.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(587, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 396, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jb_crearTpersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearTpersonaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jb_crearTpersonaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -96,7 +277,34 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.ButtonGroup buttonGroupSexo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel_personas;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
+    private javax.swing.JButton jb_buscarPersona;
+    private javax.swing.JButton jb_crearTpersona;
+    private javax.swing.JButton jb_deleteTpersona;
+    private javax.swing.JButton jb_modTpersona;
+    private javax.swing.JRadioButton jrb_femenino;
+    private javax.swing.JRadioButton jrb_masculino;
+    private javax.swing.JRadioButton jrb_noDecirlo;
+    private javax.swing.JTextField jtBuscarPersona;
+    private javax.swing.JTextField jt_apellido;
+    private javax.swing.JTextField jt_nombre;
+    private javax.swing.JTextField jt_numeroIdentidad;
     // End of variables declaration//GEN-END:variables
 }
