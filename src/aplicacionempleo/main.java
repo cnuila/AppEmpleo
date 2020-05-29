@@ -5,6 +5,19 @@
  */
 package aplicacionempleo;
 
+import com.mongodb.BasicDBList;
+import com.mongodb.BasicDBObject;
+import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import org.bson.Document;
+
 /**
  *
  * @author Carlos Nuila
@@ -166,6 +179,7 @@ public class main extends javax.swing.JFrame {
         jt_numeroIdentidad.setEditable(false);
         jPanel1.add(jt_numeroIdentidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, 143, -1));
 
+        jSpinEdad.setModel(new javax.swing.SpinnerNumberModel(15, 14, null, 1));
         jSpinEdad.setEnabled(false);
         jPanel1.add(jSpinEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 54, -1));
 
@@ -348,6 +362,11 @@ public class main extends javax.swing.JFrame {
 
         jb_guardar.setText("Guardar");
         jb_guardar.setEnabled(false);
+        jb_guardar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_guardarMouseClicked(evt);
+            }
+        });
         jPanel4.add(jb_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 120, -1));
 
         jTabbedPane2.addTab("Datos Laborales", jPanel4);
@@ -394,6 +413,7 @@ public class main extends javax.swing.JFrame {
 
     private void jb_crearTpersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearTpersonaMouseClicked
         // TODO add your handling code here:
+        seleccionPer = "Crear";
         rehacerTablaAcademico();
         jTableAcademicos.setEnabled(true);
         rehacerTablaLaborales();
@@ -454,8 +474,75 @@ public class main extends javax.swing.JFrame {
         } else {
             jt_enfermedad.setText("");
             jt_enfermedad.setEditable(false);
-        }    
+        }
     }//GEN-LAST:event_jcheckEnfermedadItemStateChanged
+
+    private void jb_guardarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_guardarMouseClicked
+        // TODO add your handling code here:
+        String sexo = "femenino";
+        if (jrb_masculino.isSelected()) {
+            sexo = "masculino";
+        } else {
+            if (jrb_noDecirlo.isSelected()) {
+                sexo = "Otro";
+            }
+        }
+        boolean viveFamilia = false;
+        if (jcheck_familia.isSelected()) {
+            viveFamilia = true;
+        }
+        boolean enCarcel = false;
+        if (jcheckCarcel.isSelected()) {
+            enCarcel = true;
+        }
+        boolean enfermedad = false;
+        if (jcheckEnfermedad.isSelected()) {
+            enfermedad = true;
+        }
+        BasicDBObject enfermedadDoc = new BasicDBObject("tiene_enfermedad", enfermedad);
+        if (enfermedad) {
+            enfermedadDoc.append("Nombre", jt_enfermedad.getText());
+        }
+
+        String[] campoAcademicos = {"nivelEstudios", "lugar", "promedio"};
+        String[] campoEmpleos = {"empresa", "años", "puesto"};
+        String[] campoPuestos = {"puesto"};
+
+        String tipoContract = "Permanente";
+        if (jrb_temporal.isSelected()) {
+            tipoContract = "Temporal";
+        } else {
+            if (jrb_porProyecto.isSelected()) {
+                tipoContract = "Por Proyecto";
+            }
+        }
+
+        MongoClient mongoClient = new MongoClient(
+                new MongoClientURI(
+                        "mongodb+srv://eagle:aldisparo@cluster0-g2ngr.mongodb.net/test?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=true"
+                )
+        );
+        MongoDatabase database = mongoClient.getDatabase("proyecto");
+        MongoCollection<Document> collection = database.getCollection("personas");
+
+        if (seleccionPer.equals("Crear")) {
+            Document persona = new Document("identidad", jt_numeroIdentidad.getText())
+                    .append("nombre", jt_nombre.getText())
+                    .append("apellido", jt_apellido.getText())
+                    .append("edad", jSpinEdad.getValue())
+                    .append("sexo", sexo)
+                    .append("vive_Familia", viveFamilia)
+                    .append("carcel", enCarcel)
+                    .append("enfermedad", enfermedadDoc)
+                    .append("estudios", ingresarTabla((DefaultTableModel) jTableAcademicos.getModel(), campoAcademicos))
+                    .append("laborales", ingresarTabla((DefaultTableModel) jTableEmpleos.getModel(), campoEmpleos))
+                    .append("puestoCapaz", ingresarTabla((DefaultTableModel) jTablePuestos.getModel(), campoPuestos))
+                    .append("tipoContrato", tipoContract)
+                    .append("salarioDeseado", jSpinSalario.getValue());
+            collection.insertOne(persona);
+            JOptionPane.showMessageDialog(this, "Creó una persona exitosamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_jb_guardarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -585,6 +672,25 @@ public class main extends javax.swing.JFrame {
         }
     }
 
+    public BasicDBList ingresarTabla(DefaultTableModel modeloTabla, String[] campos) {
+        int columnas = modeloTabla.getColumnCount();
+        int filas = modeloTabla.getRowCount();
+        BasicDBList lista = new BasicDBList();
+        BasicDBObject obj = new BasicDBObject();
+        for (int i = 0; i < filas; i++) {
+            if (modeloTabla.getValueAt(i, 0) != null) {
+                for (int j = 0; j < columnas; j++) {
+                    obj.append(campos[j], modeloTabla.getValueAt(i, j));
+                }
+                lista.add(obj);
+            } else {
+                i = filas;
+            }
+        }
+        return lista;
+    }
+
+    String seleccionPer = "";
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupContrato;
     private javax.swing.ButtonGroup buttonGroupSexo;
