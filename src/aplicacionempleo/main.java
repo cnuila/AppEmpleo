@@ -107,16 +107,17 @@ public class main extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        jt_nombreEmpresa = new javax.swing.JTextField();
+        jt_rtnEmpresa = new javax.swing.JTextField();
+        jt_directorEmpresa = new javax.swing.JTextField();
+        jt_direccionEmpresa = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        jTable_Empleos = new javax.swing.JTable();
+        jb_guardarEmpresa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -400,10 +401,16 @@ public class main extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Datos Laborales", jPanel4);
 
-        jPanel_personas.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 52, 710, 400));
+        jPanel_personas.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 52, 680, 400));
 
         jLabel2.setText("Buscar:");
         jPanel_personas.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 15, -1, -1));
+
+        jtBuscarPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtBuscarPersonaActionPerformed(evt);
+            }
+        });
         jPanel_personas.add(jtBuscarPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 12, 191, -1));
 
         jb_buscarPersona.setText("Buscar");
@@ -416,12 +423,15 @@ public class main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Personas", jPanel_personas);
 
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jb_crearTEmpresa.setText("Crear");
         jb_crearTEmpresa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jb_crearTEmpresaMouseClicked(evt);
             }
         });
+        jPanel5.add(jb_crearTEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 22, 75, -1));
 
         jb_modTEmpresa.setText("Modificar");
         jb_modTEmpresa.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -429,6 +439,7 @@ public class main extends javax.swing.JFrame {
                 jb_modTEmpresaMouseClicked(evt);
             }
         });
+        jPanel5.add(jb_modTEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(494, 22, -1, -1));
 
         jb_deleteTEmpresa.setText("Eliminar");
         jb_deleteTEmpresa.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -436,8 +447,11 @@ public class main extends javax.swing.JFrame {
                 jb_deleteTEmpresaMouseClicked(evt);
             }
         });
+        jPanel5.add(jb_deleteTEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(587, 22, 75, -1));
 
         jLabel18.setText("Buscar:");
+        jPanel5.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 26, -1, -1));
+        jPanel5.add(jtBuscarEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 23, 191, -1));
 
         jb_buscarEmpresa.setText("Buscar");
         jb_buscarEmpresa.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -450,6 +464,7 @@ public class main extends javax.swing.JFrame {
                 jb_buscarEmpresaActionPerformed(evt);
             }
         });
+        jPanel5.add(jb_buscarEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 22, 75, -1));
 
         jLabel19.setText("Nombre");
 
@@ -459,15 +474,21 @@ public class main extends javax.swing.JFrame {
 
         jLabel22.setText("Direccion");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jt_nombreEmpresa.setEnabled(false);
+        jt_nombreEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jt_nombreEmpresaActionPerformed(evt);
             }
         });
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        jt_rtnEmpresa.setEnabled(false);
+
+        jt_directorEmpresa.setEnabled(false);
+
+        jt_direccionEmpresa.setEnabled(false);
+        jt_direccionEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                jt_direccionEmpresaActionPerformed(evt);
             }
         });
 
@@ -476,7 +497,7 @@ public class main extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(60, 60, 60)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel19)
                     .addComponent(jLabel20)
@@ -484,11 +505,11 @@ public class main extends javax.swing.JFrame {
                     .addComponent(jLabel22))
                 .addGap(37, 37, 37)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
-                .addContainerGap(428, Short.MAX_VALUE))
+                    .addComponent(jt_nombreEmpresa)
+                    .addComponent(jt_rtnEmpresa)
+                    .addComponent(jt_directorEmpresa)
+                    .addComponent(jt_direccionEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(407, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -496,25 +517,27 @@ public class main extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jt_nombreEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jt_rtnEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jt_directorEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jt_direccionEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55))
         );
 
         jTabbedPane3.addTab("Datos", jPanel6);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable_Empleos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
@@ -525,91 +548,28 @@ public class main extends javax.swing.JFrame {
                 "Nombre", "Categoria", "Puesto", "Edad", "Estudios", "Prision", "Experiencia", "Sueldo", "Contrato"
             }
         ));
-        jScrollPane4.setViewportView(jTable1);
+        jTable_Empleos.setEnabled(false);
+        jScrollPane4.setViewportView(jTable_Empleos);
 
-        jButton1.setText("Gardar");
+        jPanel7.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 690, 268));
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 674, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118))
-        );
+        jb_guardarEmpresa.setText("Guardar");
+        jb_guardarEmpresa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_guardarEmpresaMouseClicked(evt);
+            }
+        });
+        jPanel7.add(jb_guardarEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, 109, 42));
 
         jTabbedPane3.addTab("Empleos", jPanel7);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jb_crearTEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel18)
-                .addGap(12, 12, 12)
-                .addComponent(jtBuscarEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jb_buscarEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jb_modTEmpresa)
-                .addGap(16, 16, 16)
-                .addComponent(jb_deleteTEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jb_crearTEmpresa)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel18))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jtBuscarEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jb_buscarEmpresa)
-                    .addComponent(jb_modTEmpresa)
-                    .addComponent(jb_deleteTEmpresa))
-                .addGap(40, 40, 40)
-                .addComponent(jTabbedPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel5.add(jTabbedPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 91, 700, 365));
 
         jTabbedPane1.addTab("Empresas", jPanel5);
 
         jPanel2.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 480));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -852,32 +812,120 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_buscarPersonaMouseClicked
 
     private void jb_crearTEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crearTEmpresaMouseClicked
-        // TODO add your handling code here:
+        jt_nombreEmpresa.setEnabled(true);
+        jt_rtnEmpresa.setEnabled(true);
+        jt_direccionEmpresa.setEnabled(true);
+        jt_directorEmpresa.setEnabled(true);
+        jTable_Empleos.setEnabled(true);
+        seleccionEMP = "Crear";
     }//GEN-LAST:event_jb_crearTEmpresaMouseClicked
 
     private void jb_modTEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modTEmpresaMouseClicked
-        // TODO add your handling code here:
+
+        if (!jtBuscarEmpresa.getText().equals("")) {
+            seleccionEMP = "Modificar";
+
+            jTable_Empleos.setEnabled(true);
+
+            jt_nombreEmpresa.setEnabled(true);
+            jt_rtnEmpresa.setEnabled(true);
+            jt_direccionEmpresa.setEnabled(true);
+            jt_directorEmpresa.setEnabled(true);
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe encontrar a una persona primero", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jb_modTEmpresaMouseClicked
 
     private void jb_deleteTEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_deleteTEmpresaMouseClicked
-        // TODO add your handling code here:
+        if (!jtBuscarEmpresa.getText().equals("")) {
+            connect.conectar("empresas");
+            connect.getCollection().deleteOne(eq("rtn", jtBuscarEmpresa.getText()));
+            connect.cerrarConexion();
+            reestablecerCampos(false);
+            jtBuscarEmpresa.setText("");
+            JOptionPane.showMessageDialog(this, "Eliminó a una persona", "Información", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Debe encontrar a una persona primero", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jb_deleteTEmpresaMouseClicked
 
     private void jb_buscarEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_buscarEmpresaMouseClicked
-        // TODO add your handling code here:
+        if (!jtBuscarEmpresa.getText().equals("")) {
+            connect.conectar("empresas");
+            FindIterable<Document> findIterable = connect.getCollection()
+                    .find(eq("rtn", jtBuscarEmpresa.getText()));
+            if (findIterable.first() == null) {
+                JOptionPane.showMessageDialog(this, "No se encontró lo que buscaba", "Información", JOptionPane.INFORMATION_MESSAGE);
+                jtBuscarPersona.setText("");
+            } else {
+                String nombre = "", rtn = "", direccion = "", director = "";
+                ArrayList<Object> iterador = new ArrayList<>();
+                for (Document doc : findIterable) {
+                    nombre = doc.getString("nombre");
+                    rtn = doc.getString("rtn");
+                    director = doc.getString("director");
+                    direccion = doc.getString("direccion");
+
+                    jt_nombreEmpresa.setText(nombre);
+                    jt_rtnEmpresa.setText(rtn);
+                    jt_directorEmpresa.setText(director);
+                    jt_direccionEmpresa.setText(direccion);
+
+                    String[] camposEmpleos = {"nombre", "categoria", "puesto", "edad", "estudios", "prision", "experiencia", "sueldo", "contrato"};
+                    iterador = (ArrayList<Object>) doc.get("empleos");
+                    llenarTablaEmpleo(jTable_Empleos, iterador, camposEmpleos);
+
+                    connect.cerrarConexion();
+                }
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No puede estar vacío el campo", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
+
     }//GEN-LAST:event_jb_buscarEmpresaMouseClicked
 
     private void jb_buscarEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_buscarEmpresaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jb_buscarEmpresaActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jt_nombreEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jt_nombreEmpresaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jt_nombreEmpresaActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void jt_direccionEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jt_direccionEmpresaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_jt_direccionEmpresaActionPerformed
+
+    private void jb_guardarEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_guardarEmpresaMouseClicked
+
+        String[] camposEmpleos = {"nombre", "categoria", "puesto", "edad", "estudios", "prision", "experiencia", "sueldo", "contrato"};
+        connect.conectar("empresas");
+        if (seleccionEMP.equals("Crear")) {
+            Document empresa = new Document("nombre", jt_nombreEmpresa.getText())
+                    .append("rtn", jt_rtnEmpresa.getText())
+                    .append("director", jt_directorEmpresa.getText())
+                    .append("direccion", jt_direccionEmpresa.getText())
+                    .append("empleos", ingresarTablaEmpleo((DefaultTableModel) jTable_Empleos.getModel(), camposEmpleos));
+            connect.insertar(empresa);
+            JOptionPane.showMessageDialog(this, "Creó una empresa exitosamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            connect.getCollection().updateOne(eq("rtn", jtBuscarEmpresa.getText()),
+                    combine(set("nombre", jt_nombre.getText()),
+                            set("rtn", jt_rtnEmpresa.getText()),
+                            set("director", jt_directorEmpresa.getText()),
+                            set("direccion", jt_direccionEmpresa.getText()),
+                            set("empleos", ingresarTablaEmpleo((DefaultTableModel) jTable_Empleos.getModel(), camposEmpleos))));
+            JOptionPane.showMessageDialog(this, "Se actualizó una empresa exitosamente", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
+        jtBuscarEmpresa.setText("");
+        connect.cerrarConexion();
+    }//GEN-LAST:event_jb_guardarEmpresaMouseClicked
+
+    private void jtBuscarPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtBuscarPersonaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtBuscarPersonaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1079,6 +1127,38 @@ public class main extends javax.swing.JFrame {
         return lista;
     }
 
+    public BasicDBList ingresarTablaEmpleo(DefaultTableModel modeloTabla, String[] campos) {
+        int columnas = modeloTabla.getColumnCount();
+        int filas = modeloTabla.getRowCount();
+        BasicDBList lista = new BasicDBList();
+
+        for (int i = 0; i < filas; i++) {
+            if (modeloTabla.getValueAt(i, 0) != null) {
+                BasicDBObject obj = new BasicDBObject();
+                for (int j = 0; j < columnas; j++) {
+                    if (modeloTabla.getValueAt(i, j) == null) {
+
+                    } else {
+                        if (j == 2) {
+                            BasicDBList puestos = new BasicDBList();
+                            String[] puestos2 = modeloTabla.getValueAt(i, j).toString().split(",");
+                            for (String puesto : puestos2) {
+                                puestos.add(puesto);
+                            }
+                            obj.put(campos[j], puestos);
+                        } else {
+                            obj.put(campos[j], modeloTabla.getValueAt(i, j));
+                        }
+                    }
+                }
+                lista.add(obj);
+            } else {
+                i = filas;
+            }
+        }
+        return lista;
+    }
+
     public void llenarTabla(JTable tabla, ArrayList<Object> iterador, String[] campos) {
         DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
         int limite = modelo.getRowCount();
@@ -1098,12 +1178,43 @@ public class main extends javax.swing.JFrame {
 
     }
 
+    public void llenarTablaEmpleo(JTable tabla, ArrayList<Object> iterador, String[] campos) {
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        int limite = modelo.getRowCount();
+        for (int i = 0; i < limite; i++) {
+            modelo.removeRow(0);
+        }
+
+        ArrayList<Object> fila = new ArrayList<>();
+        for (Object doc : iterador) {
+            for (int i = 0; i < campos.length; i++) {
+                if (i == 2) {
+                    String Puestos = "";
+                    ArrayList<Object> list = (ArrayList<Object>) ((Document) doc).get(campos[i]);
+                    for (int k=0;k<list.size();k++) {
+                        if (k == list.size()-1) {
+                            Puestos += list.get(k).toString();
+                        } else {
+                            Puestos += list.get(k).toString() + ",";
+                        }
+                    }
+                    fila.add(Puestos);
+                } else {
+                    fila.add(((Document) doc).get(campos[i]));
+                }
+            }
+            modelo.addRow(fila.toArray());
+            fila.clear();
+        }
+        tabla.setModel(modelo);
+
+    }
+    String seleccionEMP = "";
     String seleccionPer = "";
     Conexion connect = new Conexion();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroupContrato;
     private javax.swing.ButtonGroup buttonGroupSexo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1143,14 +1254,10 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTableAcademicos;
     private javax.swing.JTable jTableEmpleos;
     private javax.swing.JTable jTablePuestos;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTable jTable_Empleos;
     private javax.swing.JButton jb_buscarEmpresa;
     private javax.swing.JButton jb_buscarPersona;
     private javax.swing.JButton jb_crearTEmpresa;
@@ -1158,6 +1265,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton jb_deleteTEmpresa;
     private javax.swing.JButton jb_deleteTpersona;
     private javax.swing.JButton jb_guardar;
+    private javax.swing.JButton jb_guardarEmpresa;
     private javax.swing.JButton jb_modTEmpresa;
     private javax.swing.JButton jb_modTpersona;
     private javax.swing.JCheckBox jcheckCarcel;
@@ -1172,8 +1280,12 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTextField jtBuscarEmpresa;
     private javax.swing.JTextField jtBuscarPersona;
     private javax.swing.JTextField jt_apellido;
+    private javax.swing.JTextField jt_direccionEmpresa;
+    private javax.swing.JTextField jt_directorEmpresa;
     private javax.swing.JTextField jt_enfermedad;
     private javax.swing.JTextField jt_nombre;
+    private javax.swing.JTextField jt_nombreEmpresa;
     private javax.swing.JTextField jt_numeroIdentidad;
+    private javax.swing.JTextField jt_rtnEmpresa;
     // End of variables declaration//GEN-END:variables
 }

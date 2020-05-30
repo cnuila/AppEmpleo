@@ -26,23 +26,16 @@
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
   </AuxValues>
 
-  <Layout>
-    <DimensionLayout dim="0">
-      <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
-              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-      </Group>
-    </DimensionLayout>
-    <DimensionLayout dim="1">
-      <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
-      </Group>
-    </DimensionLayout>
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+    <Property name="useNullLayout" type="boolean" value="false"/>
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="jPanel2">
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
         <Property name="useNullLayout" type="boolean" value="false"/>
@@ -134,7 +127,7 @@
                 <Container class="javax.swing.JTabbedPane" name="jTabbedPane2">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="10" y="52" width="710" height="400"/>
+                      <AbsoluteConstraints x="10" y="52" width="680" height="400"/>
                     </Constraint>
                   </Constraints>
 
@@ -725,6 +718,9 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jtBuscarPersona">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtBuscarPersonaActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="165" y="12" width="191" height="-1"/>
@@ -755,54 +751,8 @@
                 </Constraint>
               </Constraints>
 
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="jb_crearTEmpresa" min="-2" pref="75" max="-2" attributes="0"/>
-                          <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
-                          <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                          <Component id="jtBuscarEmpresa" min="-2" pref="191" max="-2" attributes="0"/>
-                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                          <Component id="jb_buscarEmpresa" min="-2" pref="75" max="-2" attributes="0"/>
-                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                          <Component id="jb_modTEmpresa" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
-                          <Component id="jb_deleteTEmpresa" min="-2" pref="75" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jTabbedPane3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jb_crearTEmpresa" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                                  <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
-                                  <Component id="jtBuscarEmpresa" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="jb_buscarEmpresa" min="-2" max="-2" attributes="0"/>
-                              <Component id="jb_modTEmpresa" min="-2" max="-2" attributes="0"/>
-                              <Component id="jb_deleteTEmpresa" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="jTabbedPane3" min="-2" pref="365" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+                <Property name="useNullLayout" type="boolean" value="false"/>
               </Layout>
               <SubComponents>
                 <Component class="javax.swing.JButton" name="jb_crearTEmpresa">
@@ -812,6 +762,11 @@
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_crearTEmpresaMouseClicked"/>
                   </Events>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="37" y="22" width="75" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="javax.swing.JButton" name="jb_modTEmpresa">
                   <Properties>
@@ -820,6 +775,11 @@
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_modTEmpresaMouseClicked"/>
                   </Events>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="494" y="22" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="javax.swing.JButton" name="jb_deleteTEmpresa">
                   <Properties>
@@ -828,13 +788,28 @@
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_deleteTEmpresaMouseClicked"/>
                   </Events>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="587" y="22" width="75" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel18">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Buscar:"/>
                   </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="138" y="26" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jtBuscarEmpresa">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="192" y="23" width="191" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Component class="javax.swing.JButton" name="jb_buscarEmpresa">
                   <Properties>
@@ -844,8 +819,18 @@
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_buscarEmpresaMouseClicked"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jb_buscarEmpresaActionPerformed"/>
                   </Events>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="401" y="22" width="75" height="-1"/>
+                    </Constraint>
+                  </Constraints>
                 </Component>
                 <Container class="javax.swing.JTabbedPane" name="jTabbedPane3">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="0" y="91" width="700" height="365"/>
+                    </Constraint>
+                  </Constraints>
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
                   <SubComponents>
@@ -862,7 +847,7 @@
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -871,12 +856,12 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jTextField1" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField3" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextField4" alignment="0" pref="144" max="32767" attributes="0"/>
+                                      <Component id="jt_nombreEmpresa" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jt_rtnEmpresa" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jt_directorEmpresa" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jt_direccionEmpresa" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="428" max="32767" attributes="0"/>
+                                  <EmptySpace pref="407" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -886,22 +871,22 @@
                                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jt_nombreEmpresa" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jt_rtnEmpresa" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace pref="46" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jt_directorEmpresa" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jt_direccionEmpresa" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                               </Group>
@@ -929,18 +914,30 @@
                             <Property name="text" type="java.lang.String" value="Direccion"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField1">
+                        <Component class="javax.swing.JTextField" name="jt_nombreEmpresa">
+                          <Properties>
+                            <Property name="enabled" type="boolean" value="false"/>
+                          </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jt_nombreEmpresaActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField2">
+                        <Component class="javax.swing.JTextField" name="jt_rtnEmpresa">
+                          <Properties>
+                            <Property name="enabled" type="boolean" value="false"/>
+                          </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField3">
+                        <Component class="javax.swing.JTextField" name="jt_directorEmpresa">
+                          <Properties>
+                            <Property name="enabled" type="boolean" value="false"/>
+                          </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextField4">
+                        <Component class="javax.swing.JTextField" name="jt_direccionEmpresa">
+                          <Properties>
+                            <Property name="enabled" type="boolean" value="false"/>
+                          </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField4ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jt_direccionEmpresaActionPerformed"/>
                           </Events>
                         </Component>
                       </SubComponents>
@@ -954,40 +951,23 @@
                         </Constraint>
                       </Constraints>
 
-                      <Layout>
-                        <DimensionLayout dim="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane4" alignment="1" min="-2" pref="674" max="-2" attributes="0"/>
-                                      <Component id="jButton1" alignment="1" min="-2" pref="109" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                        </DimensionLayout>
-                        <DimensionLayout dim="1">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jScrollPane4" min="-2" pref="268" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" pref="42" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                        </DimensionLayout>
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+                        <Property name="useNullLayout" type="boolean" value="false"/>
                       </Layout>
                       <SubComponents>
                         <Container class="javax.swing.JScrollPane" name="jScrollPane4">
                           <AuxValues>
                             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
                           </AuxValues>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="6" y="6" width="690" height="268"/>
+                            </Constraint>
+                          </Constraints>
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JTable" name="jTable1">
+                            <Component class="javax.swing.JTable" name="jTable_Empleos">
                               <Properties>
                                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                                   <Table columnCount="9" rowCount="4">
@@ -1051,6 +1031,7 @@
                                     </Column>
                                   </TableColumnModel>
                                 </Property>
+                                <Property name="enabled" type="boolean" value="false"/>
                                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                                 </Property>
@@ -1058,10 +1039,18 @@
                             </Component>
                           </SubComponents>
                         </Container>
-                        <Component class="javax.swing.JButton" name="jButton1">
+                        <Component class="javax.swing.JButton" name="jb_guardarEmpresa">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="Gardar"/>
+                            <Property name="text" type="java.lang.String" value="Guardar"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jb_guardarEmpresaMouseClicked"/>
+                          </Events>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="580" y="280" width="109" height="42"/>
+                            </Constraint>
+                          </Constraints>
                         </Component>
                       </SubComponents>
                     </Container>
