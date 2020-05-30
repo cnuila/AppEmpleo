@@ -9,6 +9,8 @@ import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.FindIterable;
 import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Updates.combine;
+import static com.mongodb.client.model.Updates.set;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
@@ -686,14 +688,61 @@ public class main extends javax.swing.JFrame {
                     .append("salarioDeseado", jSpinSalario.getValue());
             connect.insertar(persona);
             JOptionPane.showMessageDialog(this, "Creó una persona exitosamente", "Información", JOptionPane.INFORMATION_MESSAGE);
-            connect.cerrarConexion();
-            reestablecerCampos(false);
+        } else {
+            connect.getCollection().updateOne(eq("identidad", jtBuscarPersona.getText()),
+                    combine(set("nombre", jt_nombre.getText()),
+                            set("apellido", jt_apellido.getText()),
+                            set("edad", jSpinEdad.getValue()),
+                            set("sexo", sexo),
+                            set("vive_Familia", viveFamilia),
+                            set("carcel", enCarcel),
+                            set("enfermedad", enfermedadDoc),
+                            set("estudios", ingresarTabla((DefaultTableModel) jTableAcademicos.getModel(), campoAcademicos)),
+                            set("laborales", ingresarTabla((DefaultTableModel) jTableEmpleos.getModel(), campoEmpleos)),
+                            set("puestoCapaz", ingresarTabla((DefaultTableModel) jTablePuestos.getModel(), campoPuestos)),
+                            set("tipoContrato", tipoContract),
+                            set("salarioDeseado", jSpinSalario.getValue())));
+            JOptionPane.showMessageDialog(this, "Se actualizó una persona exitosamente", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
+        jtBuscarPersona.setText("");
+        connect.cerrarConexion();
+        reestablecerCampos(false);
     }//GEN-LAST:event_jb_guardarMouseClicked
 
     private void jb_modTpersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modTpersonaMouseClicked
         // TODO add your handling code here:
         if (!jtBuscarPersona.getText().equals("")) {
+            seleccionPer = "Modificar";
+
+            jTableAcademicos.setEnabled(true);
+            jTableEmpleos.setEnabled(true);
+            jTablePuestos.setEnabled(true);
+
+            jt_nombre.setEditable(true);
+            jt_apellido.setEditable(true);
+
+            jrb_femenino.setEnabled(true);
+            jrb_masculino.setEnabled(true);
+            jrb_noDecirlo.setEnabled(true);
+
+            jSpinEdad.setEnabled(true);
+
+            jcheck_familia.setEnabled(true);
+
+            jcheckEnfermedad.setEnabled(true);
+            if (jcheckEnfermedad.isSelected()) {
+                jt_enfermedad.setEditable(true);
+            }
+
+            jcheckCarcel.setEnabled(true);
+
+            jrb_permanente.setEnabled(true);
+            jrb_temporal.setEnabled(true);
+            jrb_porProyecto.setEnabled(true);
+
+            jSpinSalario.setEnabled(true);
+
+            jb_guardar.setEnabled(true);
         } else {
             JOptionPane.showMessageDialog(this, "Debe encontrar a una persona primero", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -702,6 +751,12 @@ public class main extends javax.swing.JFrame {
     private void jb_deleteTpersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_deleteTpersonaMouseClicked
         // TODO add your handling code here:
         if (!jtBuscarPersona.getText().equals("")) {
+            connect.conectar("personas");
+            connect.getCollection().deleteOne(eq("identidad", jtBuscarPersona.getText()));
+            connect.cerrarConexion();
+            reestablecerCampos(false);
+            jtBuscarPersona.setText("");
+            JOptionPane.showMessageDialog(this, "Eliminó a una persona", "Información", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, "Debe encontrar a una persona primero", "Información", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -763,6 +818,7 @@ public class main extends javax.swing.JFrame {
                     if (tiene_enfermedad) {
                         jcheckEnfermedad.setSelected(true);
                         jt_enfermedad.setText(enfermedadEspecifica);
+                        jt_enfermedad.setEditable(false);
                     }
 
                     if (tipoContrato.equals("Temporal")) {
@@ -787,7 +843,7 @@ public class main extends javax.swing.JFrame {
                     llenarTabla(jTableEmpleos, iterador, campoEmpleos);
                     iterador = (ArrayList<Object>) doc.get("puestoCapaz");
                     llenarTabla(jTablePuestos, iterador, campoPuestos);
-
+                    connect.cerrarConexion();
                 }
             }
         } else {
