@@ -13,11 +13,14 @@ import static com.mongodb.client.model.Updates.combine;
 import static com.mongodb.client.model.Updates.set;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.regex.Pattern;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.table.DefaultTableModel;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 /**
  *
@@ -115,6 +118,15 @@ public class main extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable_Empleos = new javax.swing.JTable();
         jb_guardarEmpresa = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jc_categorias = new javax.swing.JComboBox<>();
+        jLabel23 = new javax.swing.JLabel();
+        jt_buscarEmpleado = new javax.swing.JTextField();
+        jb_buscarPersEmpleo = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jtable_empleos = new javax.swing.JTable();
+        jb_buscarCategoria = new javax.swing.JButton();
+        jb_Aplicar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -125,11 +137,11 @@ public class main extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 680, Short.MAX_VALUE)
+            .addGap(0, 675, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
+            .addGap(0, 462, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Inicio", jPanel3);
@@ -509,7 +521,7 @@ public class main extends javax.swing.JFrame {
                     .addComponent(jt_rtnEmpresa)
                     .addComponent(jt_directorEmpresa)
                     .addComponent(jt_direccionEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(407, Short.MAX_VALUE))
+                .addContainerGap(411, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -522,7 +534,7 @@ public class main extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
                     .addComponent(jt_rtnEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
                     .addComponent(jt_directorEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -567,7 +579,102 @@ public class main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Empresas", jPanel5);
 
-        jPanel2.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 480));
+        jc_categorias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IT", "React JS", "Programmer", "Developer" }));
+
+        jLabel23.setText("Buscar Empleado:");
+
+        jb_buscarPersEmpleo.setText("Buscar Persona");
+        jb_buscarPersEmpleo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_buscarPersEmpleoMouseClicked(evt);
+            }
+        });
+
+        jtable_empleos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre Empresa", "Empleo", "Puesto"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(jtable_empleos);
+
+        jb_buscarCategoria.setText("Buscar Categoría");
+        jb_buscarCategoria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_buscarCategoriaMouseClicked(evt);
+            }
+        });
+
+        jb_Aplicar.setText("Aplicar");
+        jb_Aplicar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_AplicarMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jt_buscarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jb_buscarPersEmpleo))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jc_categorias, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel8Layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jb_buscarCategoria))))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addComponent(jb_Aplicar)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(jt_buscarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jb_buscarPersEmpleo))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(jc_categorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jb_buscarCategoria)
+                        .addGap(76, 76, 76)
+                        .addComponent(jb_Aplicar))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(104, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Solicitudes Empleo", jPanel8);
+
+        jPanel2.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 490));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -927,6 +1034,83 @@ public class main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtBuscarPersonaActionPerformed
 
+    private void jb_buscarPersEmpleoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_buscarPersEmpleoMouseClicked
+        // TODO add your handling code here:
+        if (!jt_buscarEmpleado.getText().equals("")) {
+            connect.conectar("personas");
+            FindIterable<Document> findIterable = connect.getCollection()
+            .find(eq("identidad", jt_buscarEmpleado.getText()));
+            if (findIterable.first() == null) {
+                JOptionPane.showMessageDialog(this, "No se encontró lo que buscaba", "Información", JOptionPane.INFORMATION_MESSAGE);
+                jt_buscarEmpleado.setText("");
+            } else {
+                JOptionPane.showMessageDialog(this, "Se encontró la persona", "Información", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No debe estar vacío el campo", "Información", JOptionPane.INFORMATION_MESSAGE);
+            jt_buscarEmpleado.setText("");
+        }
+    }//GEN-LAST:event_jb_buscarPersEmpleoMouseClicked
+
+    private void jb_buscarCategoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_buscarCategoriaMouseClicked
+        // TODO add your handling code here:
+        DefaultComboBoxModel modeloComboBox = (DefaultComboBoxModel) jc_categorias.getModel();
+        String categoria = (String) modeloComboBox.getSelectedItem();
+
+        connect.conectar("empresas");
+        Bson filter = eq("empleos.categoria", Pattern.compile("^" + categoria));
+        FindIterable<Document> findIterable = connect.getCollection().find(filter);
+
+        if (findIterable.first() == null) {
+            JOptionPane.showMessageDialog(this, "No se encontraron trabajos", "Información", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            DefaultTableModel modeloTabla = (DefaultTableModel) jtable_empleos.getModel();
+            for (Document doc : findIterable) {
+                String nombreEmpresa = doc.getString("nombre");
+                ArrayList<Object> iterador = (ArrayList<Object>) doc.get("empleos");
+                String[] campos = {"nombre", "puesto"};
+                ArrayList<Object> fila = new ArrayList<>();
+                fila.add(nombreEmpresa);
+
+                for (Object campo : iterador) {
+                    if (((Document) campo).get("categoria").equals(categoria)) {
+                        fila.add(((Document) campo).get(campos[0]));
+                        fila.add(((Document) campo).get(campos[1]));
+                        modeloTabla.addRow(fila.toArray());
+                    }
+                }
+                fila.clear();
+            }
+            jtable_empleos.setModel(modeloTabla);
+        }
+    }//GEN-LAST:event_jb_buscarCategoriaMouseClicked
+
+    private void jb_AplicarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_AplicarMouseClicked
+        // TODO add your handling code here:
+        if (jt_buscarEmpleado.getText().equals("")){
+            JOptionPane.showMessageDialog(this, "Debe buscar una persona", "Información", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            if (jtable_empleos.getSelectedRow() == -1){
+                JOptionPane.showMessageDialog(this, "Debe seleccionar una fila", "Información", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                int fila = jtable_empleos.getSelectedRow();
+                DefaultTableModel modeloTabla = (DefaultTableModel) jtable_empleos.getModel();
+                String empresa = (String) modeloTabla.getValueAt(fila, 0);
+                String empleo = (String) modeloTabla.getValueAt(fila, 1);
+                String puesto = (String) modeloTabla.getValueAt(fila, 2);
+
+                connect.conectar("personas");
+                Document solicitud = new Document("idSolicitud", jt_buscarEmpleado.getText()+"sol")
+                .append("empresa", empresa)
+                .append("empleo", empleo)
+                .append("puesto", puesto);
+                connect.getCollection().updateOne(eq("identidad", jt_buscarEmpleado.getText()),
+                    set("Solicitudes",solicitud));
+                JOptionPane.showMessageDialog(this, "Felicidades aplicó a un trabajo", "Información", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_jb_AplicarMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1230,6 +1414,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1244,11 +1429,13 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel_personas;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSpinner jSpinEdad;
     private javax.swing.JSpinner jSpinSalario;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -1258,7 +1445,10 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTable jTableEmpleos;
     private javax.swing.JTable jTablePuestos;
     private javax.swing.JTable jTable_Empleos;
+    private javax.swing.JButton jb_Aplicar;
+    private javax.swing.JButton jb_buscarCategoria;
     private javax.swing.JButton jb_buscarEmpresa;
+    private javax.swing.JButton jb_buscarPersEmpleo;
     private javax.swing.JButton jb_buscarPersona;
     private javax.swing.JButton jb_crearTEmpresa;
     private javax.swing.JButton jb_crearTpersona;
@@ -1268,6 +1458,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton jb_guardarEmpresa;
     private javax.swing.JButton jb_modTEmpresa;
     private javax.swing.JButton jb_modTpersona;
+    private javax.swing.JComboBox<String> jc_categorias;
     private javax.swing.JCheckBox jcheckCarcel;
     private javax.swing.JCheckBox jcheckEnfermedad;
     private javax.swing.JCheckBox jcheck_familia;
@@ -1280,6 +1471,7 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTextField jtBuscarEmpresa;
     private javax.swing.JTextField jtBuscarPersona;
     private javax.swing.JTextField jt_apellido;
+    private javax.swing.JTextField jt_buscarEmpleado;
     private javax.swing.JTextField jt_direccionEmpresa;
     private javax.swing.JTextField jt_directorEmpresa;
     private javax.swing.JTextField jt_enfermedad;
@@ -1287,5 +1479,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JTextField jt_nombreEmpresa;
     private javax.swing.JTextField jt_numeroIdentidad;
     private javax.swing.JTextField jt_rtnEmpresa;
+    private javax.swing.JTable jtable_empleos;
     // End of variables declaration//GEN-END:variables
 }
