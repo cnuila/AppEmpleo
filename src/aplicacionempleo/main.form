@@ -403,7 +403,7 @@
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="jcheckCarcel">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="&#xbf;Ha estado en la arrestado?"/>
+                            <Property name="text" type="java.lang.String" value="&#xbf;Ha estado arrestado?"/>
                             <Property name="enabled" type="boolean" value="false"/>
                           </Properties>
                           <Constraints>

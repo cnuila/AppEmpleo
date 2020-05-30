@@ -24,17 +24,14 @@ public class Conexion {
     public Conexion() {
     }
 
-    public void conectar() {
+    public void conectar(String coleccion) {
         this.mongoClient = new MongoClient(
                 new MongoClientURI(
                         "mongodb+srv://eagle:aldisparo@cluster0-g2ngr.mongodb.net/test?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=true"
                 )
         );
         this.database = mongoClient.getDatabase("proyecto");
-    }
-
-    public void setColeccion(String nombreColeccion) {
-        this.collection = database.getCollection("personas");
+        this.collection = database.getCollection(coleccion);
     }
 
     public MongoCollection<Document> getCollection() {

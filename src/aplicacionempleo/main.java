@@ -8,7 +8,12 @@ package aplicacionempleo;
 import com.mongodb.BasicDBList;
 import com.mongodb.BasicDBObject;
 import com.mongodb.client.FindIterable;
+import static com.mongodb.client.model.Filters.eq;
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.table.DefaultTableModel;
 import org.bson.Document;
 
@@ -219,7 +224,7 @@ public class main extends javax.swing.JFrame {
         jLabel11.setText("Sanitarios:");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
-        jcheckCarcel.setText("¿Ha estado en la arrestado?");
+        jcheckCarcel.setText("¿Ha estado arrestado?");
         jcheckCarcel.setEnabled(false);
         jPanel1.add(jcheckCarcel, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, -1, -1));
 
@@ -422,6 +427,7 @@ public class main extends javax.swing.JFrame {
         // TODO add your handling code here:
         seleccionPer = "Crear";
         reestablecerCampos(true);
+        jtBuscarPersona.setText("");
     }//GEN-LAST:event_jb_crearTpersonaMouseClicked
 
     private void jcheckEnfermedadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcheckEnfermedadItemStateChanged
@@ -440,7 +446,7 @@ public class main extends javax.swing.JFrame {
             sexo = "masculino";
         } else {
             if (jrb_noDecirlo.isSelected()) {
-                sexo = "Otro";
+                sexo = "otro";
             }
         }
         boolean viveFamilia = false;
@@ -457,7 +463,7 @@ public class main extends javax.swing.JFrame {
         }
         BasicDBObject enfermedadDoc = new BasicDBObject("tiene_enfermedad", enfermedad);
         if (enfermedad) {
-            enfermedadDoc.append("Nombre", jt_enfermedad.getText());
+            enfermedadDoc.append("especifica", jt_enfermedad.getText());
         }
 
         String[] campoAcademicos = {"nivelEstudios", "lugar", "promedio"};
@@ -473,8 +479,7 @@ public class main extends javax.swing.JFrame {
             }
         }
 
-        connect.conectar();
-        connect.setColeccion("personas");
+        connect.conectar("personas");
 
         if (seleccionPer.equals("Crear")) {
             Document persona = new Document("identidad", jt_numeroIdentidad.getText())
@@ -515,6 +520,90 @@ public class main extends javax.swing.JFrame {
 
     private void jb_buscarPersonaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_buscarPersonaMouseClicked
         // TODO add your handling code here:
+        reestablecerCampos(false);
+        if (!jtBuscarPersona.getText().equals("")) {
+            connect.conectar("personas");
+            FindIterable<Document> findIterable = connect.getCollection()
+                    .find(eq("identidad", jtBuscarPersona.getText()));
+            if (findIterable.first() == null) {
+                JOptionPane.showMessageDialog(this, "No se encontró lo que buscaba", "Información", JOptionPane.INFORMATION_MESSAGE);
+                jtBuscarPersona.setText("");
+            } else {
+                String nombre = "", apellido = "", sexo = "", enfermedadEspecifica = "", tipoContrato = "";
+                int edad = 0;
+                double salario = 0;
+                boolean familia = false, carcel = false, tiene_enfermedad = false;
+                ArrayList<Object> iterador = new ArrayList<>();
+
+                for (Document doc : findIterable) {
+                    nombre = doc.getString("nombre");
+                    apellido = doc.getString("apellido");
+                    sexo = doc.getString("sexo");
+                    edad = doc.getInteger("edad");
+                    familia = doc.getBoolean("vive_Familia");
+                    carcel = doc.getBoolean("carcel");
+                    Document enfermedad = (Document) doc.get("enfermedad");
+                    tiene_enfermedad = enfermedad.getBoolean("tiene_enfermedad");
+                    if (tiene_enfermedad) {
+                        enfermedadEspecifica = enfermedad.getString("especifica");
+                    }
+                    tipoContrato = doc.getString("tipoContrato");
+                    salario = doc.getDouble("salarioDeseado");
+
+                    jt_nombre.setText(nombre);
+                    jt_numeroIdentidad.setText(jtBuscarPersona.getText());
+                    jt_apellido.setText(apellido);
+                    jSpinEdad.setValue(edad);
+
+                    if (sexo.equals("masculino")) {
+                        jrb_femenino.setSelected(false);
+                        jrb_masculino.setSelected(true);
+                    } else {
+                        if (sexo.equals("otro")) {
+                            jrb_femenino.setSelected(false);
+                            jrb_noDecirlo.setSelected(true);
+                        }
+                    }
+
+                    if (familia) {
+                        jcheck_familia.setSelected(true);
+                    }
+                    if (carcel) {
+                        jcheckCarcel.setSelected(true);
+                    }
+                    if (tiene_enfermedad) {
+                        jcheckEnfermedad.setSelected(true);
+                        jt_enfermedad.setText(enfermedadEspecifica);
+                    }
+
+                    if (tipoContrato.equals("Temporal")) {
+                        jrb_permanente.setSelected(false);
+                        jrb_temporal.setSelected(true);
+                    } else {
+                        if (tipoContrato.equals("Por Proyecto")) {
+                            jrb_permanente.setSelected(false);
+                            jrb_porProyecto.setSelected(true);
+                        }
+                    }
+
+                    jSpinSalario.setValue(salario);
+
+                    String[] campoAcademicos = {"nivelEstudios", "lugar", "promedio"};
+                    String[] campoEmpleos = {"empresa", "años", "puesto"};
+                    String[] campoPuestos = {"puesto"};
+
+                    iterador = (ArrayList<Object>) doc.get("estudios");
+                    llenarTabla(jTableAcademicos, iterador, campoAcademicos);
+                    iterador = (ArrayList<Object>) doc.get("laborales");
+                    llenarTabla(jTableEmpleos, iterador, campoEmpleos);
+                    iterador = (ArrayList<Object>) doc.get("puestoCapaz");
+                    llenarTabla(jTablePuestos, iterador, campoPuestos);
+
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No puede estar vacío el campo", "Información", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jb_buscarPersonaMouseClicked
 
     /**
@@ -715,6 +804,25 @@ public class main extends javax.swing.JFrame {
             }
         }
         return lista;
+    }
+
+    public void llenarTabla(JTable tabla, ArrayList<Object> iterador, String[] campos) {
+        DefaultTableModel modelo = (DefaultTableModel) tabla.getModel();
+        int limite = modelo.getRowCount();
+        for (int i = 0; i < limite; i++) {
+            modelo.removeRow(0);
+        }
+
+        ArrayList<Object> fila = new ArrayList<>();
+        for (Object doc : iterador) {
+            for (int i = 0; i < campos.length; i++) {
+                fila.add(((Document) doc).get(campos[i]));
+            }
+            modelo.addRow(fila.toArray());
+            fila.clear();
+        }
+        tabla.setModel(modelo);
+
     }
 
     String seleccionPer = "";
